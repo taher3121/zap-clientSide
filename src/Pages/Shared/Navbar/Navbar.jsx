@@ -11,6 +11,13 @@ const Header = () => {
 
     </>
 
+    const links2 = <>
+        <li className="btn"><NavLink to="/login">LogIn</NavLink></li>
+        <li className="btn"><NavLink to="/register">Register</NavLink></li>
+    
+    
+    </>
+
     return (
         <div className="navbar bg-base-100 shadow-sm p-5 rounded-2xl">
             <div className="navbar-start">
@@ -35,8 +42,10 @@ const Header = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end gap-2">
+                {
+                    links2
+                }
             </div>
         </div>
     );
