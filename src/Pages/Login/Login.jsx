@@ -1,16 +1,19 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../Context/useAuth";
+import { Link } from "react-router";
+import SocialLogIn from "../../Components/SocialLogIN/SocialLogIn";
 
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signInUser } = useAuth();
-    const handleRegistration = (data) => {
+    
+    const handleSignIn = (data) => {
         console.log(data)
         signInUser(data.email, data.password)
         .then(result=> {
-            console.log(result)
+            console.log(result.user)
         })
         .catch(err=>{
             console.log(err)
@@ -18,12 +21,13 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(handleRegistration)}>
+        <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+            <form onSubmit={handleSubmit(handleSignIn)}>
 
-                <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+                
                     <div className="card-body">
-                        <p>Welcome!</p>
+                        <p className="text-3xl text-center">Welcome!</p>
+                        <p className="text-center">Please LogIn</p>
                         
                         <fieldset className="fieldset">
                             <label className="label">Email</label>
@@ -42,10 +46,13 @@ const Login = () => {
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn btn-neutral mt-4">Login</button>
                         </fieldset>
+                        <p>New to here. <Link to="/register" className="text-blue-500 underline">Register</Link></p>
                     </div>
-                </div>
-
+                
+                                    
             </form>
+            <SocialLogIn></SocialLogIn>
+            
         </div>
     );
 };

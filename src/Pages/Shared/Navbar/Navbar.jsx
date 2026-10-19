@@ -1,8 +1,19 @@
 import { Link, NavLink } from "react-router";
 import Logo from "../../../Components/Logo/Logo";
+import useAuth from "../../../Context/useAuth";
 
 const Header = () => {
 
+    const {user,LogOut}=useAuth();
+
+    const handleLogOut =()=>{
+        LogOut()
+        .then()
+        .catch( err =>{
+            console.log(err)
+        })
+    }
+    
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/AboutUs">About Us</NavLink></li>
@@ -44,7 +55,9 @@ const Header = () => {
             </div>
             <div className="navbar-end gap-2">
                 {
-                    links2
+                    user? <a onClick={handleLogOut} className="btn">LogOut</a> : links2
+                    
+                    
                 }
             </div>
         </div>
