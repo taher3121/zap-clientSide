@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import Logo from "../../../Components/Logo/Logo";
 import useAuth from "../../../Context/useAuth";
 
 const Header = () => {
 
     const {user,LogOut}=useAuth();
+    const location = useLocation();
 
     const handleLogOut =()=>{
         LogOut()
@@ -59,6 +60,7 @@ const Header = () => {
                     
                     
                 }
+                <Link to="/rider" className="btn btn-primary text-black">Be a Rider</Link>
             </div>
         </div>
     );
