@@ -6,19 +6,23 @@ import Banner3 from '../../assets/banner/banner3.png'
 
 const Banner = () => {
     return (
-        <Carousel autoPlay={true} infiniteLoop={true} interval={1500}>
+        <Carousel
+            autoPlay
+            infiniteLoop
+            interval={3000}
+            showThumbs={false}
+            showStatus={false}
+            className="overflow-hidden rounded-xl sm:rounded-2xl"
+        >
 
             <div>
-                <img src={Banner1} />
-                <p className="legend">Legend 1</p>
+                <img src={Banner1} alt="ZapShift delivery service" className="block h-auto w-full" />
             </div>
             <div>
-                <img src={Banner2} />
-                <p className="legend">Legend 2</p>
+                <img src={Banner2} alt="ZapShift delivery coverage" className="block h-auto w-full" />
             </div>
             <div>
-                <img src={Banner3} />
-                <p className="legend">Legend 3</p>
+                <img src={Banner3} alt="ZapShift parcel delivery" className="block h-auto w-full" />
             </div>
 
         </Carousel>

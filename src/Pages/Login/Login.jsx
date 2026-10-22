@@ -25,12 +25,12 @@ const Login = () => {
     }
 
     return (
-        <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+        <div className="card mx-auto w-full min-w-0 max-w-md bg-base-100 shadow-xl">
             <form onSubmit={handleSubmit(handleSignIn)}>
 
                 
                     <div className="card-body">
-                        <p className="text-3xl text-center">Welcome!</p>
+                        <p className="text-center text-2xl font-semibold sm:text-3xl">Welcome!</p>
                         <p className="text-center">Please LogIn</p>
                         
                         <fieldset className="fieldset">
@@ -48,7 +48,7 @@ const Login = () => {
                                 Requires at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</p>}
 
                             <div><a className="link link-hover">Forgot password?</a></div>
-                            <button className="btn btn-neutral mt-4">Login</button>
+                            <button className="btn btn-neutral mt-4 w-full">Login</button>
                         </fieldset>
                         <p>New to here. <Link to="/register" state={location.state} className="text-blue-500 underline">Register</Link></p>
                     </div>

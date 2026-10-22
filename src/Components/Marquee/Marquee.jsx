@@ -14,21 +14,33 @@ const Brands = [amazon, amazon_vector, casio, moonstar, randstad, star]
 
 const Marquee = () => {
     return (
-        <Swiper
-            slidesPerView={4}
-            centeredSlides={true}
-            spaceBetween={30}
-            grabCursor={true}
-            loop={true}
-            modules={[Autoplay]}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}>
-            {
-                Brands.map((logo, index) => <SwiperSlide key={index}><img src={logo} alt="" /></SwiperSlide>)
-            }
-        </Swiper>
+        <div className="my-6 w-full py-3 sm:my-8 sm:py-4">
+            <Swiper
+                slidesPerView={2}
+                centeredSlides
+                spaceBetween={16}
+                grabCursor
+                loop
+                breakpoints={{
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 24,
+                    },
+                }}
+                modules={[Autoplay]}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                className="mx-auto w-full max-w-5xl"
+            >
+                {Brands.map((logo, index) => (
+                    <SwiperSlide key={index} className="flex items-center justify-center">
+                        <img src={logo} alt="" className="h-5 w-full object-contain sm:h-5" />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
     );
 };
 

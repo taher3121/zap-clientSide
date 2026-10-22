@@ -4,7 +4,7 @@ import Logo from "../../../Components/Logo/Logo";
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center  p-10">
+        <footer className="footer footer-center flex-col gap-4 px-2 py-8 sm:flex-row sm:justify-between sm:px-4 sm:py-10">
             <aside>
                 <div className="flex items-center">
                     <Logo></Logo>

@@ -27,15 +27,15 @@ const Coverage = () => {
     }
 
     return (
-        <div>
-            <h1 className="text-5xl font-bold m-5 text-center">
+        <div className="py-6 sm:py-10">
+            <h1 className="mx-2 mb-6 text-center text-3xl font-bold sm:mb-8 sm:text-5xl">
                 Our WareHouses
             </h1>
 
-            <div className="m-5">
-                <h1 className="text-xl font-semibold p-1">Search Now</h1>
-                <form onSubmit={handleSearch}>
-                    <label className="input">
+            <div className="mb-4">
+                <h2 className="mb-2 text-lg font-semibold sm:text-xl">Search Now</h2>
+                <form onSubmit={handleSearch} className="flex w-full flex-col gap-2 sm:flex-row">
+                    <label className="input w-full sm:max-w-md">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g
                                 strokeLinejoin="round"
@@ -50,19 +50,19 @@ const Coverage = () => {
                         </svg>
                         <input type="search" className="grow" placeholder="Search" name="location" />
                     </label>
-                    <button className="btn bg-black text-white ml-1.5">Search</button>
+                    <button className="btn w-full bg-black text-white sm:w-auto">Search</button>
                 </form>
             </div>
 
-            <div className="w-fill h-[600px]">
-                <MapContainer className="h-[600px]" center={position} zoom={8} scrollWheelZoom={false} ref={mapRef}>
+            <div className="h-[60vh] min-h-80 max-h-[600px] w-full overflow-hidden rounded-xl">
+                <MapContainer className="h-full w-full" center={position} zoom={8} scrollWheelZoom={false} ref={mapRef}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {
                         Services.map(center =>
-                            <Marker position={[center.latitude, center.longitude]}>
+                            <Marker key={center.district} position={[center.latitude, center.longitude]}>
                                 <Popup>
                                     A pretty CSS3 popup. <br /> Easily customizable.
                                 </Popup>
